@@ -46,7 +46,10 @@ class MovieDetailSerializer(MovieSerializer):
 
 class MovieSessionSerializer(serializers.ModelSerializer):
     movie = serializers.PrimaryKeyRelatedField(queryset=Movie.objects.all())
-    cinema_hall = serializers.PrimaryKeyRelatedField(queryset=CinemaHall.objects.all())
+    cinema_hall = (serializers.
+                   PrimaryKeyRelatedField
+                   (queryset=CinemaHall.objects.all()))
+
     class Meta:
         model = MovieSession
         fields = ("show_time", "movie", "cinema_hall")
